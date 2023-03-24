@@ -1,0 +1,55 @@
+#include <Arduino.h>
+#include "MCP4151.h"
+
+#define CS     10
+#define MOSI   11
+#define MISO   12
+#define SCK    13
+
+int i = 0;
+float u_in = 5.0;
+float u;
+float read_value;
+
+MCP4151 pot(CS, MOSI, MISO, SCK);
+// MCP4151 pot(CS, MOSI, MISO, SCK, 4000000, 250000, SPI_MODE0);
+
+void setup() {
+  pot.writeValue(0); // turn the pot off
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  for (i = 0; i <= 255; i++) {
+    pot.writeValue(i);
+    Serial.print("Pot: ");
+    Serial.print(pot.getCurValue());
+    Serial.print(" - A0: ");
+    read_value=0;
+    for(int j = 0; j < 5; j++){
+      read_value+=analogRead(A0);}
+    read_value=read_value/5;
+    Serial.print(read_value);
+    u=(u_in/1023.0)*read_value;
+    Serial.print(" - U: ");
+    Serial.println(u);
+    delay(10);
+  }
+  for (i = 255; i >= 0; i--) {
+    pot.writeValue(i);
+    Serial.print("Pot: ");
+    Serial.print(pot.getCurValue());
+    Serial.print(" - A0: ");
+    read_value=0;
+    for(int j = 0; j < 5; j++){
+      read_value+=analogRead(A0);}
+    read_value=read_value/5;
+    Serial.print(read_value);
+    u=(u_in/1023.0)*read_value;
+    Serial.print(" - U: ");
+    Serial.println(u);
+    delay(10);
+  }
+  delay(60000);
+}
