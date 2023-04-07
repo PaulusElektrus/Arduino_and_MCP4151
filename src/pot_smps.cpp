@@ -1,5 +1,5 @@
 /*
-With this script it is possible to control a SMPS by a digiPot by an Arduino UNO with the PC over Serial Communication.
+With this script I controlled a SMPS by a MCP4151 with an Arduino UNO and the PC over Serial Communication.
 */
 
 #include <Arduino.h>
