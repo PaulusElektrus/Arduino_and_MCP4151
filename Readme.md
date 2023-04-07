@@ -8,7 +8,7 @@ The file /src/pot_u.cpp is used to measure the voltage of the potis voltage divi
 
 #### Wiring Diagram:
 
-![Circuit Diagram](MCP4151-U-Messung_Leiterplatte.png)
+![Circuit Diagram](MCP4151-U-Messung_Steckplatine.png)
 
 ## Resistance Measurement
 
