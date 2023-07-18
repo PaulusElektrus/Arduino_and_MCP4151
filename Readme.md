@@ -33,7 +33,7 @@ For the plotted data see [this repository](https://github.com/PaulusElektrus/MA-
 I controlled a power supply (SMPS) with the MCP4151 instead of a trim potentiometer.
 See the code under /src/pot_smps.cpp
 It works, but the pots lowest value is ~200 Ohm and to much to reach the voltage I wanted.
-Therefore I will try to inject current with the PWM output of the Arduino. --> Repository will follow...
+Therefore I will try to inject current with the PWM output of the Arduino. --> [Here](https://github.com/PaulusElektrus/Uno_PWM)
 
 ## Credits 
 
